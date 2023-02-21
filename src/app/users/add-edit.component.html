@@ -1,0 +1,121 @@
+﻿<h1>{{title}}</h1>
+<form *ngIf="!loading" [formGroup]="form" (submit)="salvarPessoa()">
+    <div class="row">
+        <div class="col-3 mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" formControlName="nome" maxlength="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" />
+            <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                <div *ngIf="f.nome.errors.required">Nome é um campo obrigatório</div>
+            </div>
+        </div>
+        
+        <div class="col-2 mb-3">
+            <label class="form-label">Telefone</label>
+            <input type="text" mask="(00) 0000-00000" formControlName="telefone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }" />
+            <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
+                <div *ngIf="f.telefone.errors.required">Telefone é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-3 mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" formControlName="email" minlength="10" maxlength="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email é um campo obrigatório</div>
+                <div *ngIf="f.email.errors.email">Precisa ser um Email valido</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 mb-3">
+            <label class="form-label">CPF</label>
+            <input type="text" mask="000.000.000-00" formControlName="cpf" maxlength="30" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" />
+            <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
+                <div *ngIf="f.cpf.errors.required">CPF é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-2 mb-3">
+            <label class="form-label">RG</label>
+            <input type="text" mask="00.000.000-A" formControlName="rg" maxlength="30" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.rg.errors }" />
+            <div *ngIf="submitted && f.rg.errors" class="invalid-feedback">
+                <div *ngIf="f.rg.errors.required">RG é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-2 mb-3">
+            <label class="form-label">Data de Nascimento</label>
+            <input matInput mask="00/00/0000"  type="datetime" formControlName="dataNascimento" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dataNascimento.errors }" />
+            <div *ngIf="submitted && f.dataNascimento.errors" class="invalid-feedback">
+                <div *ngIf="f.dataNascimento.errors.required">Data de Nascimento é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-3 mb-3">
+            <label class="form-label">Nome do Pai</label>
+            <input type="text" formControlName="nomePai" maxlength="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomePai.errors }" />
+            <div *ngIf="submitted && f.nomePai.errors" class="invalid-feedback">
+                <div *ngIf="f.nomePai.errors.required">Nome do Pai é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-3 mb-3">
+            <label class="form-label">Nome da Mãe</label>
+            <input type="text" formControlName="nomeMae" maxlength="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomeMae.errors }" />
+            <div *ngIf="submitted && f.nomeMae.errors" class="invalid-feedback">
+                <div *ngIf="f.nomeMae.errors.required">Nome da Mãe é um campo obrigatório</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 mb-3">
+            <label class="form-label">CEP</label>
+            <input type="text" mask="00000-000" formControlName="cep" maxlength="30" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cep.errors }" />
+            <div *ngIf="submitted && f.cep.errors" class="invalid-feedback">
+                <div *ngIf="f.cep.errors.required">CEP é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-3 mb-3">
+            <label class="form-label">Endereço</label>
+            <input type="text" formControlName="endereco" maxlength="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.endereco.errors }" />
+            <div *ngIf="submitted && f.endereco.errors" class="invalid-feedback">
+                <div *ngIf="f.endereco.errors.required">Endereço é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-2 mb-3">
+            <label class="form-label">Bairro</label>
+            <input type="text" formControlName="bairro" maxlength="30" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bairro.errors }" />
+            <div *ngIf="submitted && f.bairro.errors" class="invalid-feedback">
+                <div *ngIf="f.bairro.errors.required">Bairro é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-2 mb-3">
+            <label class="form-label">Cidade</label>
+            <input type="text" formControlName="cidade" maxlength="30" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cidade.errors }" />
+            <div *ngIf="submitted && f.cidade.errors" class="invalid-feedback">
+                <div *ngIf="f.cidade.errors.required">Cidade é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-2 mb-3">
+            <label class="form-label">UF</label>
+            <input type="text" formControlName="estado" maxlength="2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }" />
+            <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                <div *ngIf="f.estado.errors.required">UF é um campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-1 mb-3">
+            <label class="form-label">Número</label>
+            <input type="text" formControlName="numero" maxlength="4" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numero.errors }" />
+            <div *ngIf="submitted && f.numero.errors" class="invalid-feedback">
+                <div *ngIf="f.numero.errors.required">Número é um campo obrigatório</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary" type="submit">
+            <span *ngIf="submitting" class="spinner-border spinner-border-sm me-1"></span>
+            Salvar
+        </button>
+        <a routerLink="/users" class="btn btn-danger ms-4">Cancelar</a>
+        <a class="btn btn-dark ms-4" (click)="gerarDados()">Gerar Dados</a>
+        <a class="btn btn-secondary ms-4" (click)="limparDados()">Limpar Dados</a>
+    </div>
+</form>
+<div *ngIf="loading" class="text-center m-5">
+    <span class="spinner-border spinner-border-lg align-center"></span>
+</div>
